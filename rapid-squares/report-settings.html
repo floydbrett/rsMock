@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report Settings · Rapid Squares</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="report-settings">
+
+<header class="topbar">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#F08A4B" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 16 L15 5 L27 16"/><path d="M7 13 V25 H23 V13"/><path d="M15 5 V25"/></svg>
+    <span class="brand-name">Rapid Squares</span>
+    <span class="brand-sub">Aerial Roof Reports</span>
+  </div>
+  <nav class="topnav" aria-label="Primary">
+    <a href="index.html">Reports</a>
+    <a href="#">New sketch</a>
+    <a href="report-settings.html" aria-current="page">Report settings</a>
+    <a href="team.html">Team</a>
+    <a href="account.html">Account</a>
+  </nav>
+</header>
+
+<main class="page" style="max-width: 1360px;">
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">Report branding</p>
+      <h1>Set up your roof reports</h1>
+      <p class="lede">Everything here prints on every aerial roof sketch report you send to homeowners and adjusters.</p>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-outline">Save settings</button>
+      <button type="button" class="btn btn-primary">Generate report</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-main">
+
+      <section class="card" aria-labelledby="sec-co">
+        <div class="card-title"><span class="num">01</span><h2 id="sec-co">Company</h2></div>
+        <div class="grid-fields">
+          <div class="fld"><label for="co-name">Company name</label><input id="co-name" type="text" placeholder="e.g. Summit Roofing &amp; Exteriors" data-field="name"></div>
+          <div class="fld"><label for="co-lic">License number</label><input id="co-lic" type="text" placeholder="e.g. TX-RC-000000" data-field="license"><span class="hint">Shown in the report header and footer.</span></div>
+        </div>
+        <div class="fld">
+          <span class="label">Company logo</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+            <div style="width: 112px; height: 112px; border-radius: 8px; background: var(--ground); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <img class="logo-img hidden" alt="Company logo preview" style="max-height: 100%; object-fit: contain;">
+              <span class="logo-empty hint" style="text-align: center; padding: 8px;">No logo yet</span>
+            </div>
+            <label class="drop" style="flex: 1 1 260px; min-height: 112px; padding: 16px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B03A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v4h16v-4"/></svg>
+              <strong>Upload logo</strong>
+              <span class="hint">PNG, JPG or SVG · transparent background works best</span>
+              <input id="logo-input" class="sr" type="file" accept="image/*">
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="sec-ct">
+        <div class="card-title"><span class="num">02</span><h2 id="sec-ct">Contact info</h2></div>
+        <div class="grid-fields">
+          <div class="fld"><label for="ct-person">Contact name</label><input id="ct-person" type="text" placeholder="e.g. Jordan Reyes" data-field="person"></div>
+          <div class="fld"><label for="ct-phone">Phone</label><input id="ct-phone" type="tel" placeholder="(000) 000-0000" data-field="phone"></div>
+          <div class="fld"><label for="ct-email">Email</label><input id="ct-email" type="email" placeholder="estimates@yourcompany.com" data-field="email"></div>
+          <div class="fld"><label for="ct-web">Website</label><input id="ct-web" type="url" placeholder="yourcompany.com" data-field="web"></div>
+        </div>
+        <div class="fld"><label for="ct-addr">Business address</label><input id="ct-addr" type="text" placeholder="Street, City, State ZIP" data-field="addr"></div>
+      </section>
+
+      <section class="card" aria-labelledby="sec-ph">
+        <div class="split" style="align-items: baseline;">
+          <div class="card-title"><span class="num">03</span><h2 id="sec-ph">Roof photos</h2></div>
+          <span class="hint"><span id="photo-count">0 photos</span> added · include aerial, each slope and any damage</span>
+        </div>
+        <label class="drop" style="min-height: 120px; background: var(--paper-2);">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B03A0A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 8"/></svg>
+          <strong>Drop roof photos here or browse</strong>
+          <span class="hint">JPG, PNG or HEIC · drone and satellite images welcome</span>
+          <input id="photo-input" class="sr" type="file" accept="image/*" multiple>
+        </label>
+        <div class="thumbs" id="photo-grid"></div>
+      </section>
+    </div>
+
+    <aside class="col-side" style="flex-basis: 380px; gap: 12px;" aria-labelledby="pv-h">
+      <div class="split" style="align-items: baseline;">
+        <h2 id="pv-h" class="display" style="margin: 0; font-size: 16px; font-weight: 700;">Report preview</h2>
+        <span class="hint">Page 1 of 4</span>
+      </div>
+      <div style="background: #FFFFFF; border-radius: 4px; box-shadow: 0 1px 2px rgba(22,34,44,0.08), 0 8px 24px rgba(22,34,44,0.10); padding: 28px; display: flex; flex-direction: column; gap: 18px;">
+        <div style="display: flex; align-items: center; gap: 14px; padding-bottom: 14px; border-bottom: 3px solid var(--navy);">
+          <div style="width: 56px; height: 56px; flex: 0 0 56px; display: flex; align-items: center; justify-content: center; background: var(--ground); border-radius: 4px; overflow: hidden;">
+            <img class="logo-img hidden" alt="" style="max-height: 100%; object-fit: contain;">
+            <span class="logo-empty" style="font-size: 10px; color: var(--muted);">LOGO</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+            <span class="display" style="font-weight: 800; font-size: 18px; line-height: 1.15;" data-out="name" data-default="[Company Name]">[Company Name]</span>
+            <span class="mono" style="font-size: 11px; color: var(--muted);">LIC # <span data-out="license" data-default="[License number]">[License number]</span></span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span class="mono" style="font-size: 11px; letter-spacing: 0.1em; color: var(--accent);">AERIAL ROOF MEASUREMENT REPORT</span>
+          <span style="font-size: 14px; font-weight: 600;">[Property address]</span>
+          <span class="hint">Prepared [Date] · Report # [0000]</span>
+        </div>
+        <figure style="margin: 0; background: var(--paper-2); border: 1px solid var(--line); border-radius: 4px; padding: 12px;">
+          <svg viewBox="0 0 320 190" width="100%" role="img" aria-label="Roof sketch with facets A through D" style="display: block;">
+            <g fill="#FFFFFF" stroke="#16222C" stroke-width="1.6" stroke-linejoin="round">
+              <polygon points="30,40 290,40 230,95 90,95"/>
+              <polygon points="30,150 290,150 230,95 90,95"/>
+              <polygon points="30,40 90,95 30,150"/>
+              <polygon points="290,40 230,95 290,150"/>
+            </g>
+            <line x1="90" y1="95" x2="230" y2="95" stroke="#B03A0A" stroke-width="2.4"/>
+            <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#16222C" text-anchor="middle">
+              <text x="160" y="72">A</text><text x="160" y="128">B</text><text x="52" y="99">C</text><text x="268" y="99">D</text>
+            </g>
+            <g font-family="IBM Plex Mono, monospace" font-size="9" fill="#56616B" text-anchor="middle">
+              <text x="160" y="32">[length] ft</text><text x="160" y="168">[length] ft</text>
+              <text x="160" y="90" fill="#B03A0A">RIDGE</text>
+            </g>
+            <text x="300" y="182" font-family="IBM Plex Mono, monospace" font-size="9" fill="#56616B" text-anchor="end">N ↑</text>
+          </svg>
+        </figure>
+        <table style="font-size: 12px;" class="preview-table">
+          <thead><tr><th style="padding: 6px 0; background: none;">Facet</th><th style="padding: 6px 0; background: none;">Pitch</th><th style="padding: 6px 0; background: none; text-align: right;">Area</th></tr></thead>
+          <tbody>
+            <tr><td style="padding: 6px 0;">A · Front</td><td style="padding: 6px 0;">[x/12]</td><td style="padding: 6px 0; text-align: right;">[— sq ft]</td></tr>
+            <tr><td style="padding: 6px 0;">B · Rear</td><td style="padding: 6px 0;">[x/12]</td><td style="padding: 6px 0; text-align: right;">[— sq ft]</td></tr>
+            <tr><td style="padding: 6px 0;">C, D · Hips</td><td style="padding: 6px 0;">[x/12]</td><td style="padding: 6px 0; text-align: right;">[— sq ft]</td></tr>
+            <tr style="font-weight: 600;"><td style="padding: 8px 0; border: 0;">Total</td><td style="border: 0;"></td><td style="padding: 8px 0; border: 0; text-align: right;">[— squares]</td></tr>
+          </tbody>
+        </table>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span class="mono" style="font-size: 10px; letter-spacing: 0.1em; color: var(--muted);">SITE PHOTOS</span>
+          <div id="preview-photos" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px;"></div>
+        </div>
+        <div style="border-top: 1px solid var(--line); padding-top: 12px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; font-size: 11px; color: var(--muted);">
+          <span><span data-out="person" data-default="[Contact name]">[Contact name]</span> · <span data-out="phone" data-default="[Phone]">[Phone]</span></span>
+          <span data-out="email" data-default="[Email]">[Email]</span>
+          <span data-out="web" data-default="[Website]">[Website]</span>
+          <span style="flex-basis: 100%;" data-out="addr" data-default="[Business address]">[Business address]</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

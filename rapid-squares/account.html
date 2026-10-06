@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account Settings · Rapid Squares</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="account">
+
+<header class="topbar">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#F08A4B" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 16 L15 5 L27 16"/><path d="M7 13 V25 H23 V13"/><path d="M15 5 V25"/></svg>
+    <span class="brand-name">Rapid Squares</span>
+    <span class="brand-sub">Aerial Roof Reports</span>
+  </div>
+  <nav class="topnav" aria-label="Primary">
+    <a href="index.html">Reports</a>
+    <a href="#">New sketch</a>
+    <a href="report-settings.html">Report settings</a>
+    <a href="team.html">Team</a>
+    <a href="account.html" aria-current="page">Account</a>
+  </nav>
+</header>
+
+<main class="page" style="max-width: 1180px;">
+  <div class="page-head">
+    <div>
+      <p class="eyebrow">Your account</p>
+      <h1>Settings</h1>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-outline">Cancel</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <nav class="sidenav" aria-label="Settings sections">
+      <a href="#profile" class="current">Profile</a>
+      <a href="#contact">Contact info</a>
+      <a href="#billing">Billing</a>
+      <a href="#security">Password &amp; security</a>
+    </nav>
+
+    <div class="col-main">
+      <section class="card" aria-label="Company" style="gap: 8px;">
+        <div class="fld">
+          <label for="org">Company</label>
+          <div class="locked">
+            <input id="org" type="text" value="[Company Name]" disabled aria-describedby="org-hint">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#56616B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          </div>
+          <span id="org-hint" class="hint">Managed by your company admin. Contact them to change companies.</span>
+        </div>
+      </section>
+
+      <section id="profile" class="card" aria-labelledby="sec-pr">
+        <h2 id="sec-pr">Profile</h2>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px;">
+          <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; background: var(--line-2); display: flex; align-items: center; justify-content: center; flex: 0 0 80px;">
+            <img id="avatar-img" class="hidden" alt="Profile photo" style="width: 100%; height: 100%; object-fit: cover;">
+            <svg id="avatar-empty" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#56616B" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+          </div>
+          <label class="btn drop" style="border-style: solid; border-width: 1px; padding: 0 16px; flex-direction: row;">Upload photo<input id="avatar-input" class="sr" type="file" accept="image/*"></label>
+          <span class="hint">Shown on reports you prepare.</span>
+        </div>
+        <div class="grid-fields" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="fld"><label for="fn">First name</label><input id="fn" type="text" placeholder="First name"></div>
+          <div class="fld"><label for="ln">Last name</label><input id="ln" type="text" placeholder="Last name"></div>
+          <div class="fld"><label for="ti">Job title</label><input id="ti" type="text" placeholder="e.g. Estimator"></div>
+          <div class="fld"><label for="tz">Time zone</label>
+            <select id="tz"><option>Central Time (CT)</option><option>Eastern Time (ET)</option><option>Mountain Time (MT)</option><option>Pacific Time (PT)</option></select></div>
+        </div>
+      </section>
+
+      <section id="contact" class="card" aria-labelledby="sec-ct">
+        <h2 id="sec-ct">Contact info</h2>
+        <div class="grid-fields" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="fld"><label for="em">Email</label><input id="em" type="email" placeholder="you@yourcompany.com"></div>
+          <div class="fld"><label for="ph">Mobile phone</label><input id="ph" type="tel" placeholder="(000) 000-0000"></div>
+          <div class="fld"><label for="op">Office phone</label><input id="op" type="tel" placeholder="(000) 000-0000"></div>
+          <div class="fld"><label for="ct">Preferred contact</label>
+            <select id="ct"><option>Email</option><option>Text message</option><option>Phone call</option></select></div>
+        </div>
+      </section>
+
+      <section id="billing" class="card" aria-labelledby="sec-bl">
+        <h2 id="sec-bl">Billing</h2>
+        <div class="split" style="gap: 16px; padding: 18px; border-radius: 8px; background: var(--ground);">
+          <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span class="mono" style="font-size: 11px; letter-spacing: 0.1em; color: var(--accent);">CURRENT PLAN</span>
+            <span class="display" style="font-size: 22px; font-weight: 800;">[Plan name]</span>
+            <span class="hint">[$00]/month · [00] reports included · renews [date]</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn">Cancel plan</button>
+            <button type="button" class="btn btn-dark">Change plan</button>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div class="split" style="font-size: 13px;"><b>Reports used this cycle</b><span class="hint">[0] of [00]</span></div>
+          <div role="progressbar" aria-label="Reports used this cycle" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" style="height: 8px; border-radius: 4px; background: var(--line-2); overflow: hidden;"><div style="width: 40%; height: 100%; background: var(--accent);"></div></div>
+        </div>
+        <div class="split" style="padding: 16px 0; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2);">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 48px; height: 32px; border-radius: 4px; border: 1px solid var(--field); display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="#3E4A54" stroke-width="1.5" aria-hidden="true"><rect x="1" y="1" width="20" height="14" rx="2"/><path d="M1 5h20"/></svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px;"><b style="font-size: 14px;">[Card brand] ending in [0000]</b><span class="hint">Expires [MM/YY]</span></div>
+          </div>
+          <button type="button" class="btn">Update payment method</button>
+        </div>
+        <div class="grid-fields" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="fld"><label for="bem">Billing email</label><input id="bem" type="email" placeholder="billing@yourcompany.com"></div>
+          <div class="fld"><label for="bad">Billing address</label><input id="bad" type="text" placeholder="Street, City, State ZIP"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <b style="font-size: 14px;">Invoices</b>
+          <div class="table-wrap">
+            <table style="min-width: 440px;" class="plain">
+              <thead><tr><th style="padding-left: 0; background: none;">Date</th><th style="background: none;">Description</th><th style="background: none;">Amount</th><th style="padding-right: 0; background: none;">Invoice</th></tr></thead>
+              <tbody>
+                <tr><td style="padding-left: 0;">[Date]</td><td>[Plan name] · monthly</td><td>[$00.00]</td><td style="padding-right: 0;"><a href="#">Download PDF</a></td></tr>
+                <tr><td style="padding-left: 0;">[Date]</td><td>[Plan name] · monthly</td><td>[$00.00]</td><td style="padding-right: 0;"><a href="#">Download PDF</a></td></tr>
+                <tr><td style="padding-left: 0; border: 0;">[Date]</td><td style="border: 0;">Extra reports · [0]</td><td style="border: 0;">[$00.00]</td><td style="padding-right: 0; border: 0;"><a href="#">Download PDF</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="security" class="card" aria-labelledby="sec-sc" style="gap: 16px;">
+        <h2 id="sec-sc">Password &amp; security</h2>
+        <div class="split" style="padding-bottom: 16px; border-bottom: 1px solid var(--line-2);">
+          <div style="display: flex; flex-direction: column; gap: 2px;"><b style="font-size: 14px;">Password</b><span class="hint">Last changed [date]</span></div>
+          <button type="button" class="btn">Change password</button>
+        </div>
+        <div class="split">
+          <div style="display: flex; flex-direction: column; gap: 2px;"><b style="font-size: 14px;">Two-step verification</b><span class="hint">Add a code from your phone when signing in.</span></div>
+          <button type="button" class="btn">Turn on</button>
+        </div>
+      </section>
+
+      <div class="split" style="padding: 4px 4px 0;">
+        <span class="hint">Want to leave [Company Name]? Ask your admin to remove you.</span>
+        <button type="button" class="btn" style="border: 0; background: transparent; color: var(--danger); text-decoration: underline; padding: 0 4px;">Sign out</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

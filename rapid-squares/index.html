@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Reports · Rapid Squares</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="reports">
+
+<header class="topbar">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#F08A4B" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 16 L15 5 L27 16"/><path d="M7 13 V25 H23 V13"/><path d="M15 5 V25"/></svg>
+    <span class="brand-name">Rapid Squares</span>
+    <span class="brand-sub">Aerial Roof Reports</span>
+  </div>
+  <nav class="topnav" aria-label="Primary">
+    <a href="index.html" aria-current="page">Reports</a>
+    <a href="#">New sketch</a>
+    <a href="report-settings.html">Report settings</a>
+    <a href="team.html">Team</a>
+    <a href="account.html">Account</a>
+  </nav>
+</header>
+
+<main class="page" style="max-width: 1280px; display: flex; flex-direction: column; gap: 24px;">
+  <div class="page-head" style="margin-bottom: 0;">
+    <div>
+      <p class="eyebrow">Order history</p>
+      <h1>My reports</h1>
+      <p class="lede">Every aerial roof report you've ordered, newest first.</p>
+    </div>
+    <a href="#" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      Order new report
+    </a>
+  </div>
+
+  <div class="split">
+    <div class="tabs" role="tablist" aria-label="Filter by status">
+      <button type="button" class="tab" role="tab" data-filter="all" aria-selected="true">All<span class="count"></span></button>
+      <button type="button" class="tab" role="tab" data-filter="ready" aria-selected="false">Ready<span class="count"></span></button>
+      <button type="button" class="tab" role="tab" data-filter="processing" aria-selected="false">Processing<span class="count"></span></button>
+      <button type="button" class="tab" role="tab" data-filter="ordered" aria-selected="false">Ordered<span class="count"></span></button>
+      <button type="button" class="tab" role="tab" data-filter="needs" aria-selected="false">Needs info<span class="count"></span></button>
+    </div>
+    <div style="position: relative; flex: 0 1 320px; min-width: 220px;" class="fld">
+      <label for="q" class="sr">Search reports</label>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#56616B" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="position: absolute; left: 14px; top: 14px;"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="q" type="search" placeholder="Search address or report #" style="padding-left: 40px; font-size: 14px;">
+    </div>
+  </div>
+
+  <div class="card" style="padding: 0; gap: 0;">
+    <div class="table-wrap">
+      <table style="min-width: 860px;">
+        <thead>
+          <tr><th>Report #</th><th>Property</th><th>Report type</th><th>Ordered</th><th>Status</th><th>Actions</th></tr>
+        </thead>
+        <tbody id="report-rows">
+          <tr data-status="processing">
+            <td class="mono" style="font-size: 13px;">[RS-0006]</td>
+            <td><b>[Property address]</b><br><span class="hint">[City, ST ZIP]</span></td>
+            <td>Full roof report</td><td>[Date]</td>
+            <td><span class="pill processing">Processing</span></td>
+            <td><span class="hint">Est. [time]</span></td>
+          </tr>
+          <tr data-status="ordered">
+            <td class="mono" style="font-size: 13px;">[RS-0005]</td>
+            <td><b>[Property address]</b><br><span class="hint">[City, ST ZIP]</span></td>
+            <td>Full roof report</td><td>[Date]</td>
+            <td><span class="pill ordered">Ordered</span></td>
+            <td><span class="hint">Queued</span></td>
+          </tr>
+          <tr data-status="needs">
+            <td class="mono" style="font-size: 13px;">[RS-0004]</td>
+            <td><b>[Property address]</b><br><span class="hint">[City, ST ZIP]</span></td>
+            <td>Roof + walls</td><td>[Date]</td>
+            <td><span class="pill needs">Needs info</span></td>
+            <td><a href="#" class="linkbtn">Add details</a></td>
+          </tr>
+          <tr data-status="ready">
+            <td class="mono" style="font-size: 13px;">[RS-0003]</td>
+            <td><b>[Property address]</b><br><span class="hint">[City, ST ZIP]</span></td>
+            <td>Full roof report</td><td>[Date]</td>
+            <td><span class="pill ready">Ready</span></td>
+            <td><a href="report-settings.html" class="linkbtn">View</a><a href="#" class="linkbtn">Download PDF</a></td>
+          </tr>
+          <tr data-status="ready">
+            <td class="mono" style="font-size: 13px;">[RS-0002]</td>
+            <td><b>[Property address]</b><br><span class="hint">[City, ST ZIP]</span></td>
+            <td>Quick estimate</td><td>[Date]</td>
+            <td><span class="pill ready">Ready</span></td>
+            <td><a href="report-settings.html" class="linkbtn">View</a><a href="#" class="linkbtn">Download PDF</a></td>
+          </tr>
+          <tr data-status="ready">
+            <td class="mono" style="font-size: 13px;">[RS-0001]</td>
+            <td><b>[Property address]</b><br><span class="hint">[City, ST ZIP]</span></td>
+            <td>Full roof report</td><td>[Date]</td>
+            <td><span class="pill ready">Ready</span></td>
+            <td><a href="report-settings.html" class="linkbtn">View</a><a href="#" class="linkbtn">Download PDF</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p id="no-results" class="hidden" style="margin: 0; padding: 40px 20px; text-align: center; color: #56616B;">No reports match.</p>
+  </div>
+
+  <div class="split">
+    <span class="hint" id="showing"></span>
+    <div class="actions" style="gap: 6px;">
+      <button type="button" class="btn" disabled>Previous</button>
+      <button type="button" class="btn">Next</button>
+    </div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

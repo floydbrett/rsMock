@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team &amp; Invites · Rapid Squares</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="team">
+
+<header class="topbar">
+  <div class="brand">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="#F08A4B" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 16 L15 5 L27 16"/><path d="M7 13 V25 H23 V13"/><path d="M15 5 V25"/></svg>
+    <span class="brand-name">Rapid Squares</span>
+    <span class="brand-sub">Aerial Roof Reports</span>
+  </div>
+  <nav class="topnav" aria-label="Primary">
+    <a href="index.html">Reports</a>
+    <a href="#">New sketch</a>
+    <a href="report-settings.html">Report settings</a>
+    <a href="team.html" aria-current="page">Team</a>
+    <a href="account.html">Account</a>
+  </nav>
+</header>
+
+<main class="page" style="max-width: 1280px; display: flex; flex-direction: column; gap: 24px;">
+  <div class="page-head" style="margin-bottom: 0;">
+    <div>
+      <p class="eyebrow">Admin · [Company Name]</p>
+      <h1>Team &amp; invites</h1>
+      <p class="lede">Invite employees to your company account and choose what each person can do.</p>
+    </div>
+  </div>
+
+  <div class="row" style="gap: 24px;">
+    <section class="card col-main" aria-labelledby="inv-h" style="gap: 20px;">
+      <h2 id="inv-h">Invite employees</h2>
+      <div class="grid-fields">
+        <div class="fld" style="grid-column: 1 / -1;"><label for="inv-em">Email addresses</label><input id="inv-em" type="text" placeholder="name@yourcompany.com, another@yourcompany.com"><span class="hint">Separate multiple emails with commas. Everyone gets the same settings below.</span></div>
+        <div class="fld"><label for="inv-fn">Name (optional)</label><input id="inv-fn" type="text" placeholder="e.g. Jordan Reyes"></div>
+        <div class="fld"><label for="inv-ti">Job title (optional)</label><input id="inv-ti" type="text" placeholder="e.g. Estimator"></div>
+      </div>
+
+      <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+        <legend style="font-size: 13px; font-weight: 600; padding: 0; margin-bottom: 10px;">Role</legend>
+        <div class="roles">
+          <button type="button" class="role" data-role="admin" aria-pressed="false"><b>Admin</b><small>Full access, team and billing</small></button>
+          <button type="button" class="role" data-role="manager" aria-pressed="false"><b>Manager</b><small>All reports and branding</small></button>
+          <button type="button" class="role" data-role="estimator" aria-pressed="true"><b>Estimator</b><small>Orders their own reports</small></button>
+          <button type="button" class="role" data-role="viewer" aria-pressed="false"><b>Viewer</b><small>View and download only</small></button>
+        </div>
+        <span class="hint" id="role-note">Pick a role to fill in permissions, then adjust any box below.</span>
+      </fieldset>
+
+      <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column;">
+        <legend style="font-size: 13px; font-weight: 600; padding: 0; margin-bottom: 4px;">Permissions</legend>
+        <span class="mono" style="font-size: 11px; letter-spacing: 0.1em; color: var(--accent); margin-top: 12px;">ORDERING</span>
+        <label class="perm"><input type="checkbox" data-perm="order" checked><span><b>Order reports</b><span class="hint">Place new aerial roof report orders, charged to the company account.</span></span></label>
+        <label class="perm"><input type="checkbox" data-perm="viewAll"><span><b>See all company reports</b><span class="hint">Off: they only see reports they ordered.</span></span></label>
+        <label class="perm"><input type="checkbox" data-perm="download" checked><span><b>Download and share reports</b><span class="hint">Export PDFs and send reports to homeowners or adjusters.</span></span></label>
+        <span class="mono" style="font-size: 11px; letter-spacing: 0.1em; color: var(--accent); margin-top: 16px;">SETTINGS ACCESS</span>
+        <label class="perm"><input type="checkbox" data-perm="branding"><span><b>Edit report settings</b><span class="hint">Change company name, logo, license number and contact info on reports.</span></span></label>
+        <label class="perm"><input type="checkbox" data-perm="billing"><span><b>Manage billing</b><span class="hint">View invoices, change plan and update the payment method.</span></span></label>
+        <label class="perm"><input type="checkbox" data-perm="team"><span><b>Manage team</b><span class="hint">Invite, edit and remove employees. Gives admin-level control.</span></span></label>
+      </fieldset>
+
+      <div class="grid-fields">
+        <div class="fld"><label for="inv-lim">Monthly order limit</label><select id="inv-lim"><option>No limit</option><option>[5] reports</option><option>[10] reports</option><option>[25] reports</option></select><span class="hint">Applies only if they can order reports.</span></div>
+        <div class="fld"><label for="inv-exp">Invite expires after</label><select id="inv-exp"><option>7 days</option><option>14 days</option><option>30 days</option></select></div>
+      </div>
+
+      <div class="split" style="padding-top: 16px; border-top: 1px solid var(--line-2);">
+        <span class="hint">Invites are sent from [Company Name] and must be accepted within the window above.</span>
+        <button type="button" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          Send invites
+        </button>
+      </div>
+    </section>
+
+    <aside class="col-side" style="flex-basis: 300px;" aria-labelledby="seat-h">
+      <div style="background: var(--navy); color: var(--ground); border-radius: 10px; padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+        <h2 id="seat-h" class="mono" style="margin: 0; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--accent-light);">SEATS</h2>
+        <span class="display" style="font-size: 28px; font-weight: 800;">[0] of [00] used</span>
+        <span style="font-size: 13px; color: #C3CCD3;">Pending invites count toward your seats until they expire.</span>
+        <a href="account.html#billing" style="color: var(--accent-light); font-size: 14px; font-weight: 600; padding: 8px 0;">Add seats in Billing</a>
+      </div>
+      <div class="card" style="padding: 22px; gap: 12px;">
+        <h3 class="display" style="margin: 0; font-size: 16px; font-weight: 700;">What roles can do</h3>
+        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+          <div><strong>Admin</strong><span class="hint" style="display: block;">Everything, including team, billing and branding.</span></div>
+          <div><strong>Manager</strong><span class="hint" style="display: block;">Orders and sees all company reports. No billing or team.</span></div>
+          <div><strong>Estimator</strong><span class="hint" style="display: block;">Orders reports and sees only their own.</span></div>
+          <div><strong>Viewer</strong><span class="hint" style="display: block;">Can view and download reports shared with them.</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <section class="card" aria-labelledby="mem-h" style="padding: 0; gap: 0;">
+    <div class="split" style="padding: 20px 24px;">
+      <h2 id="mem-h">Team members</h2>
+      <span class="hint">5 people · 2 pending</span>
+    </div>
+    <div class="table-wrap">
+      <table style="min-width: 820px;">
+        <thead>
+          <tr><th style="border-top: 1px solid var(--line);">Name</th><th style="border-top: 1px solid var(--line);">Role</th><th style="border-top: 1px solid var(--line);">Can order</th><th style="border-top: 1px solid var(--line);">Settings access</th><th style="border-top: 1px solid var(--line);">Status</th><th style="border-top: 1px solid var(--line);">Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="member"><span class="avatar">YO</span><span><b>[Your name]</b><br><span class="hint">[you@yourcompany.com]</span></span></div></td>
+            <td>Admin</td><td>Yes</td><td>All</td><td><span class="pill active">Active</span></td><td><span class="hint">You</span></td>
+          </tr>
+          <tr>
+            <td><div class="member"><span class="avatar">EM</span><span><b>[Employee name]</b><br><span class="hint">[name@yourcompany.com]</span></span></div></td>
+            <td>Manager</td><td>Yes</td><td>Report settings</td><td><span class="pill active">Active</span></td>
+            <td><a href="#" class="linkbtn">Edit permissions</a><a href="#" class="linkbtn danger">Remove</a></td>
+          </tr>
+          <tr>
+            <td><div class="member"><span class="avatar">EM</span><span><b>[Employee name]</b><br><span class="hint">[name@yourcompany.com]</span></span></div></td>
+            <td>Estimator</td><td>Yes · [10]/mo</td><td>—</td><td><span class="pill active">Active</span></td>
+            <td><a href="#" class="linkbtn">Edit permissions</a><a href="#" class="linkbtn danger">Remove</a></td>
+          </tr>
+          <tr>
+            <td><div class="member"><span class="avatar">?</span><span><b>Invite sent</b><br><span class="hint">[name@yourcompany.com]</span></span></div></td>
+            <td>Estimator</td><td>Yes</td><td>—</td><td><span class="pill pending">Pending</span></td>
+            <td><a href="#" class="linkbtn">Resend</a><a href="#" class="linkbtn danger">Revoke</a></td>
+          </tr>
+          <tr>
+            <td><div class="member"><span class="avatar">?</span><span><b>Invite sent</b><br><span class="hint">[name@yourcompany.com]</span></span></div></td>
+            <td>Viewer</td><td>—</td><td>—</td><td><span class="pill pending">Pending</span></td>
+            <td><a href="#" class="linkbtn">Resend</a><a href="#" class="linkbtn danger">Revoke</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
